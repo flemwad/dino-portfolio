@@ -51,11 +51,14 @@ gulp.task('build:js', ['build:tpl'], function () {
     //We exclude global validators and ctrls using them here
     //they are built with the bundle task below this
     //to include commonjs mixins
-    var files = [gulpConfig.appFiles.JS]
-        .concat(buildDir + gulpConfig.appFiles.tplJS);
+    var files = [gulpConfig.appFiles.JS];
 
     // If argv.prod we want to uglify & rename...
     if(argv.prod) {
+        
+        //Also lump templates.js into app.js so it all gets into same file
+        files.concat(buildDir + gulpConfig.appFiles.tplJS);
+        
         return gulp.src(files)
             .pipe(concat(gulpConfig.appFiles.appJS))
             .pipe(ngAnnotate({
@@ -145,9 +148,11 @@ gulp.task('inject', ['sass'], function () {
             {starttag: '<!-- inject:{{ext}}:lib -->', ignorePath: buildDir, addRootSlash: false}))
         //app injects
         .pipe(gulpInject(gulp.src([
-                buildDir + gulpConfig.appFiles.appJS
+                buildDir + gulpConfig.appFiles.appJS,
+                buildDir + gulpConfig.appFiles.tplJS
             ]),
             {starttag: '<!-- inject:{{ext}}:src -->', ignorePath: buildDir, addRootSlash: false}))
+    
         //sass inject
         .pipe(gulpInject(gulp.src(
             buildDir + gulpConfig.sassFiles.outputDir + gulpConfig.sassFiles.outputFile, {read: false}),
