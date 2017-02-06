@@ -1,11 +1,11 @@
-angular.module('dinoPortfolio').config(function ($stateProvider, $urlRouterProvider) {
+function dinoRouter ($stateProvider, $urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider
-        .state('homePage', {
-            url: '/home',
-            component: 'homePage',
+        .state('home', {
+            url: '/',
+            component: 'home',
             resolve: {
                 albums: function () {
                     //Call out to imgur api for albums
@@ -18,4 +18,6 @@ angular.module('dinoPortfolio').config(function ($stateProvider, $urlRouterProvi
                 //NavigationService.setVisible(false);
             }
         })
-});
+}
+
+module.exports = dinoRouter;

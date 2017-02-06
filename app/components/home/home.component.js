@@ -1,12 +1,10 @@
-angular.module('dinoPortfolio').component('homePage',
-    {
-        template: function ($templateCache) {
-            return $templateCache.get('components/home/home.template.html');
-        },
-        controller: 'homeController',
-        bindings: {
-            navTitle: '=',
-            albums: '<'
-        }
+var templateUrl = require('./home.template.html');
+
+module.exports = {
+    templateUrl: templateUrl,
+    controller: 'homeController',
+    bindings: {
+        navTitle: '=',
+        albums: '<'
     }
-);
+};
