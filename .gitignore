@@ -2,4 +2,7 @@
 /dist
 /.tmp
 /.sass-cache
+/.idea
 local.config.js
+doc.txt
+boarding.jpg

@@ -22,7 +22,7 @@ function homeController ($log, $state, $q, ImgurService, ImgurCacheService) {
     this.$onInit = function(bindings) {
         var self = this;
 
-        //TODO - Load album default images for a carousel
+        //TODO - Load all images given $state.id which should be imgur's album id
 
         // if (albums) {
         //     $log.debug('cached albums: ', ImgurService.albums);

@@ -17,7 +17,10 @@ function dinoRouter ($stateProvider, $urlRouterProvider) {
             onEnter: function () { //NavigationService
                 //NavigationService.setVisible(false);
             }
-        })
+        });
+
+    //TODO: Dynamic album states
+
 }
 
 module.exports = dinoRouter;
