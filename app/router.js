@@ -7,16 +7,26 @@ function dinoRouter ($stateProvider, $urlRouterProvider) {
             url: '/',
             component: 'home',
             resolve: {
-                albums: function () {
-                    //Call out to imgur api for albums
+                account: function (ImgurService) {
+                    return ImgurService.getAccount();
                 },
-                navTitle: function () {
-                    return 'Home';
+                carouselImages: function (ImgurService) {
+                    return ImgurService.getCarouselImages();
                 }
-            },
-            onEnter: function () { //NavigationService
-                //NavigationService.setVisible(false);
             }
+        })
+        .state('album', {
+            url: '/album/:id',
+            component: 'album',
+            resolve: {
+                images: function ($log, $stateParams, ImgurService) {
+                    return ImgurService.getAlbumImages($stateParams.id);
+                }
+            }
+        })
+        .state('about', {
+            url: '/about',
+            component: 'about'
         });
 
     //TODO: Dynamic album states

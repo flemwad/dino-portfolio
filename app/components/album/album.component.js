@@ -1,9 +1,9 @@
-var templateUrl = require('./home.template.html');
+var templateUrl = require('./album.template.html');
 
 module.exports = {
     templateUrl: templateUrl,
-    controller: 'homeController',
+    controller: 'albumController',
     bindings: {
-
+        images: '<'
     }
 };

@@ -1,26 +1,26 @@
-function navigationController ($log, $state, ImgurService, ImgurCacheService) {
+function navigationController ($log, $state, NavigationService) {
+
+    this.loadingAlbums = NavigationService.isLoadingAlbums;
 
     this.$onInit = function(bindings) {
         var self = this;
 
-        //TODO - handle hiding and showing album buttons when they are finished dynamically loaded
-        //Refer to app.js for now for dynamic state loading
-
-        // if (ImgurService.getCachedAlbums()) {
-        //     $log.debug('cached albums: ', ImgurService.albums);
-        //     self.albums = ImgurService.albums;
-        //
-        //     //iterateAlbumImages(self.albums);
-        // } else {
-        //     ImgurService.getAlbums().then(function (data) {
-        //         self.albums = data;
-        //     }).catch(function (error) {
-        //         //TODO - toast error
-        //         throw new Error(error);
-        //     });
-        // }
-
+        NavigationService.loadAlbums().then(
+            function loadAlbumSuccess (albums) {
+                $log.debug('loaded albums:', albums);
+                self.albums = albums;
+            }
+        )
+        .catch(function loadAlbumFailure (error) {
+            self.albums = [];
+            self.loadingAlbumsFailed = true;
+            $log.error(error);
+        })
     };
+
+    this.goAlbum = function (albumId) {
+        $state.go('album', {id: albumId});
+    }
 
 }
 

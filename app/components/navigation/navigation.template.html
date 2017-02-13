@@ -1,3 +1,9 @@
-<div class=".col-md-offset-3 .col-md-8">
-    {{'Nav here'}}
+<div class="header clearfix col-md-offset-3 col-md-6">
+    <nav>
+        <ul class="nav nav-pills">
+            <li class="active"><a ui-sref="home">Home</a></li>
+            <li ng-repeat="album in $ctrl.albums"><a ng-click="$ctrl.goAlbum(album.id)">{{album.title}}</a></li>
+            <li><a ui-sref="about">About</a></li>
+        </ul>
+    </nav>
 </div>

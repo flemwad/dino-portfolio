@@ -1,8 +1,12 @@
-<div class=".col-md-offset-3 .col-md-6">
-    <div ng-repeat="album in $ctrl.albums">
-        {{album.title}}
-        <sub>{{album.description}}</sub>
-
-        <img />
+<div class="carousel">
+    <div uib-carousel active="0" interval="5000">
+        <div uib-slide ng-repeat="image in $ctrl.carouselImages track by image.index" index="image.index">
+            <img ng-src="{{image.link}}"
+                 class="img-responsive"
+                 ng-style="{width: image.width, height: image.height}" />
+            <div class="carousel-caption">
+                <p>{{image.description}}</p>
+            </div>
+        </div>
     </div>
 </div>

@@ -4,7 +4,6 @@ module.exports = {
     templateUrl: templateUrl,
     controller: 'navigationController',
     bindings: {
-        navTitle: '=',
         albums: '<'
     }
 };
