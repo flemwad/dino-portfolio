@@ -1,5 +1,7 @@
 /node_modules
 /dist
 /.tmp
+/.idea
+.idea/workspace.iml
 /.sass-cache
 local.config.js
