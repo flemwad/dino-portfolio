@@ -1,5 +1,6 @@
 var dinoPortfolio = angular.module('dinoPortfolio', [
     'ui.router',
+    'ngTouch',
     'ui.bootstrap',
     'LocalStorageModule'
 ]);
@@ -24,10 +25,9 @@ dinoPortfolio.run(function ($log, $state, $transitions) {
     $transitions.onSuccess({}, function(options){
 
         if (options._targetState.$state().resolve && options._targetState.$state().resolve.pageTitle) {
-            //$rootScope.pageTitle = options._targetState.$state().resolve.pageTitle() + ' | i';
-        }
-        else {
-            //$rootScope.pageTitle = '';
+            $rootScope.pageTitle = options._targetState.$state().data.pageTitle + "| Sara O'Brien Illustrations";
+        } else {
+            $rootScope.pageTitle = '';
         }
 
     });

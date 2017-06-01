@@ -26,14 +26,13 @@
   },
   "dependencies": {
     "angular": "1.5.8",
-    "angular-animate": "^1.5.8",
-    "angular-local-storage": "^0.5.2",
-    "angular-touch": "^1.5.8",
-    "angular-ui-bootstrap": "^2.5.0",
-    "angular-ui-router": "^1.0.0-beta.3",
-    "bootstrap": "^3.3.7",
-    "font-awesome": "^4.7.0",
-    "jquery": "^3.1.1",
-    "masonry-layout": "^4.1.1"
+    "angular-animate": "1.5.8",
+    "angular-local-storage": "0.5.2",
+    "angular-touch": "1.5.8",
+    "angular-ui-bootstrap": "2.5.0",
+    "angular-ui-router": "1.0.0-beta.3",
+    "bootstrap": "3.3.7",
+    "font-awesome": "4.7.0",
+    "jquery": "^3.1.1"
   }
 }

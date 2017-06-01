@@ -6,6 +6,9 @@ function dinoRouter ($stateProvider, $urlRouterProvider) {
         .state('home', {
             url: '/',
             component: 'home',
+            data: {
+                pageTitle: 'Home'
+            },
             resolve: {
                 account: function (ImgurService) {
                     return ImgurService.getAccount();
@@ -18,6 +21,9 @@ function dinoRouter ($stateProvider, $urlRouterProvider) {
         .state('album', {
             url: '/album/:id',
             component: 'album',
+            data: {
+                pageTitle: 'Home'
+            },
             resolve: {
                 images: function ($log, $stateParams, ImgurService) {
                     return ImgurService.getAlbumImages($stateParams.id);

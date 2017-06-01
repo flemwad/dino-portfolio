@@ -29,7 +29,7 @@ angular.module('dinoPortfolio')
     .constant('ENV', process.env.ENV)
 
 //Directives
-    .directive('ngMasonry', require('./directives/masonry.directive'))
+
 
 //Services
     .service('ImgurService', require('./services/imgur.service'))
